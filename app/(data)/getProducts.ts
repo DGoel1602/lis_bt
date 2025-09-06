@@ -29,6 +29,7 @@ export default async function getProducts(
   if (col) {
     res = res.eq("type", col);
   }
+  res = res.order("created_at", { ascending: false });
   if (sort) {
     if (sort == "p0") {
       res = res.order("price", { ascending: true });
