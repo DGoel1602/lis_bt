@@ -28,10 +28,10 @@ function getCurrencySymbol(isoCode: string, locale = "en-US") {
 
 export function Currency(props: propsType) {
   const [currencyType, _, exchange] = useContext(CurrencyContext);
-  const [price, setPrice] = useState(Number(props.price.toPrecision(2)) * exchange);
+  const [price, setPrice] = useState(props.price * exchange);
 
   useEffect(() => {
-    setPrice(Number(props.price.toPrecision(2)) * exchange);
+    setPrice(props.price * exchange);
   }, [props.price, exchange]);
 
   return (
